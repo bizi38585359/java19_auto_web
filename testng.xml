@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="1">
+    <listeners>
+        <!--让监听器类生效的-->
+        <listener class-name="com.lemon.test.Listener.TestResultListener"></listener>
+        <!--不用加，不是全局监听，局部监听类方法
+        <listener class-name="com.lemon.test.Listener.TestNGRetry"></listener>-->
+        <listener class-name="com.lemon.test.Listener.RetryListener"></listener>
+    </listeners>
+
+    <test name="线程1-登录页面测试">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="com.lemon.test.TestCases.LoginTest"></class>
+        </classes>
+    </test>
+    <test name="线程2-加入课堂页面测试">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="com.lemon.test.TestCases.JoinClassTest"></class>
+        </classes>
+    </test>
+    <test name="线程3-上传作业页面测试">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="com.lemon.test.TestCases.UploadHomeworkTest"></class>
+        </classes>
+    </test>
+</suite>
